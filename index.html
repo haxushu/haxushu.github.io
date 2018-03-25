@@ -58,9 +58,9 @@
 	        
 				<li><a href="/tags/数学日记/">数学日记</a></li>
 	        
-				<li><a href="/tags/技能学习/">技能学习</a></li>
+				<li><a href="/tags/技能/">技能学习</a></li>
 	        
-				<li><a href="/tags/分享">一起分享</a></li>
+				<li><a href="/tags/分享/">一起分享</a></li>
 	        
 			</ul>
 		</nav>
@@ -150,9 +150,9 @@
 		        
 					<li style="width: 20%"><a href="/tags/数学日记/">数学日记</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/技能学习/">技能学习</a></li>
+					<li style="width: 20%"><a href="/tags/技能/">技能学习</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/分享">一起分享</a></li>
+					<li style="width: 20%"><a href="/tags/分享/">一起分享</a></li>
 		        
 				</ul>
 			</nav>
@@ -169,43 +169,111 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-postname" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Mac上搭建基于GitHub的Hexo博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/25/postname/">postname</a>
+      <a class="article-title" href="/2018/03/25/Mac上搭建基于GitHub的Hexo博客/">Mac上搭建基于GitHub的Hexo博客</a>
     </h1>
   
 
         
-        <a href="/2018/03/25/postname/" class="archive-article-date">
-  	<time datetime="2018-03-25T07:55:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-25</time>
+        <a href="/2018/03/25/Mac上搭建基于GitHub的Hexo博客/" class="archive-article-date">
+  	<time datetime="2018-03-25T09:37:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Problem-Assignments"><a href="#Problem-Assignments" class="headerlink" title="Problem: Assignments"></a>Problem: Assignments</h2><p>Time Limit: 5 Sec | Memory Limit: 128 Mb </p>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>​    When Starfleet headquarters gets a request for an exploration expedition, they need to determine which ship from those currently docked in the docking bay to send. They decide to send whichever ship is currently able to make the expedition based on how much fuel is currently stored on the ship as well as how long it will take the ship to arrive at the expected destination. Due to the age and current maintenance of the ships, each ship travels at a different top speed and has a different fuel consumption rate. Each ship reaches its top speed instantaneously.</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Input begins with a line with one integer T (1 ≤ T ≤ 50) denoting the number of test cases. Each test case begins with a line with two space-separated integers N and D, where N (1 ≤ N ≤ 100) denotes the number of ships in the docking bay and D (1 ≤ D ≤ 106) denotes the distance in lightyears to the expedition site. Next follow N lines with three space-separated integers vi, fi, and ci, where vi (1 ≤ vi ≤ 1000) denotes the top speed of ship i in light-years per hour, fi (1 ≤ fi ≤ 1000) denotes the fuel on ship i in kilos of deuterium, and ci (1 ≤ ci ≤ 1000) denotes the fuel consumption of ship i in kilos of deuterium per hour.</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case, print a single integer on its own line denoting the number of ships capable of reaching the expedition site. Be careful with integer division!</p>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><p>2</p>
-<p>3 100</p>
-<p>52 75 10</p>
-<p>88 13 44</p>
-<p>56 9 5</p>
-<p>2 920368</p>
-<p>950 950 1</p>
-<p>943 976 1</p>
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><p>2</p>
-<p>1</p>
-<h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><p>just some hints</p>
-<h3 id="Author"><a href="#Author" class="headerlink" title="Author"></a>Author</h3><p>Your name</p>
-<h3 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><p>2013 Pacific Northwest Region Programming Contest </p>
+        <p>原文地址：<a href="http://gonghonglou.com/2016/02/03/firstblog" target="_blank" rel="noopener">http://gonghonglou.com/2016/02/03/firstblog</a>                                       </p>
+<h1 id="Mac上搭建基于GitHub的Hexo博客"><a href="#Mac上搭建基于GitHub的Hexo博客" class="headerlink" title="Mac上搭建基于GitHub的Hexo博客"></a>Mac上搭建基于GitHub的Hexo博客</h1><p>这是一篇详细文章来讲述用Mac搭建Hexo博客于Github上的完整历程， 也是踩了无数的坑搭起来的，现在写下些经验来分享，希望能帮大家少踩些坑。<br>曾买过一款阿里的云虚拟主机，后来才发现不能自己装软件只能上传网站程序，除非另买<a href="https://www.aliyun.com/easybuy" target="_blank" rel="noopener">ECS</a>，对于第一个月的实习工资还没拿到手的我想想还是算了，先用Wordpress搭起来玩玩吧。然而在上传网站程序中几次失败，本就觉得没劲，遂一怒转向Github。好了，废话少说，开始吧。<br>环境配置<a href="https://hexo.io/docs" target="_blank" rel="noopener">Hexo官网</a>上本就有对Hexo安装及使用的详细介绍，墙裂推荐。这里来讲述自己安装的亲身步骤，或有区别。<br>1.Node.js用来生成静态页面。移步<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js官网</a>，下载v5.5.0 Stable 一路安装即可。<br>2.Git用来将本地Hexo内容提交到Github上。Xcode自带Git，这里不再赘述。如果没有Xcode可以参考<a href="https://hexo.io/docs" target="_blank" rel="noopener">Hexo官网</a>上的安装方法。<br>安装Hexo当Node.js和Git都安装好后就可以正式安装Hexo了，终端执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo</span><br></pre></td></tr></table></figure>
+<p>输入管理员密码（Mac登录密码）即开始安装 (<code>sudo</code>:linux系统管理指令  <code>-g</code>:全局安装)</p>
+<blockquote>
+<p>注意坑一：<a href="https://hexo.io/docs" target="_blank" rel="noopener">Hexo官网</a>上的安装命令是<code>$ npm install -g hexo-cli</code>，安装时不要忘记前面加上<code>sudo</code>，否则会因为权限问题报错。</p>
+</blockquote>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>终端cd到一个你选定的目录，执行<code>hexo init</code>命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+<p><code>blog</code>是你建立的文件夹名称。cd到<code>blog</code>文件夹下，执行如下命令，安装npm：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>执行如下命令，开启hexo服务器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<p>此时，浏览器中打开网址<a href="http://0.0.0.0:4000" target="_blank" rel="noopener">http://localhost:4000</a>，能看到如下页面：</p>
+<p><a href="http://image.gonghonglou.com/firstblog/hexo4000.png" target="_blank" rel="noopener"><img src="http://image.gonghonglou.com/firstblog/hexo4000.png" alt="http://localhost:4000"></a></p>
+<p>本地设置好后，接下来开始关联Github。</p>
+<h2 id="关联Github"><a href="#关联Github" class="headerlink" title="关联Github"></a>关联Github</h2><h3 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1.创建仓库"></a>1.创建仓库</h3><p>登录你的Github帐号，新建仓库，名为<code>用户名.github.io</code>固定写法，如<code>gonghonglou.github.io</code>即下图中<code>1</code>所示：</p>
+<p><a href="http://image.gonghonglou.com/firstblog/githubName.png" target="_blank" rel="noopener"><img src="http://image.gonghonglou.com/firstblog/githubName.png" alt="](http://localhost:4000"></a></p>
+<p>本地的<code>blog</code>文件夹下内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">_config.yml	</span><br><span class="line">db.json </span><br><span class="line">node_modules </span><br><span class="line">package.json</span><br><span class="line">scaffolds</span><br><span class="line">source</span><br><span class="line">themes</span><br></pre></td></tr></table></figure>
+<p>终端cd到<code>blog</code>文件夹下，<code>vim</code>打开<code>_config.yml</code>，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>打开后往下滑到最后，修改成下边的样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/gonghonglou/gonghonglou.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>你需要将<code>repository</code>后<code>gonghonglou</code>换成你自己的用户名，地址在上图<code>2</code>位置获取。hexo 3.1.1版本后<code>type:</code>值为<code>git</code>。</p>
+<blockquote>
+<p>注意坑二：在配置所有的<code>_config.yml</code>文件时（包括theme中的），在所有的冒号<code>:</code>后边都要加一个空格，否则执行hexo命令会报错，切记 切记</p>
+</blockquote>
+<p>在<code>blog</code>文件夹目录下执行生成静态页面命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate		或者：hexo g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">此时若出现如下报错：</span><br><span class="line">ERROR Local hexo not found in ~/blog</span><br><span class="line">ERROR Try runing: &apos;npm install hexo --save&apos;</span><br><span class="line"></span><br><span class="line">则执行命令：</span><br><span class="line">npm install hexo --save</span><br><span class="line"></span><br><span class="line">若无报错，自行忽略此步骤。</span><br></pre></td></tr></table></figure>
+<p>再执行配置命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy			或者：hexo d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意坑三：若执行命令<code>hexo deploy</code>仍然报错：无法连接git或找不到git，则执行如下命令来安装<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; $ npm install hexo-deployer-git --save        </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>再次执行<code>hexo generate</code>和<code>hexo deploy</code>命令。</p>
+<p>若你未关联Github，则执行<code>hexo deploy</code>命令时终端会提示你输入Github的用户名和密码，即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Username for &apos;https://github.com&apos;:</span><br><span class="line">Password for &apos;https://github.com&apos;:</span><br></pre></td></tr></table></figure>
+<p><code>hexo deploy</code>命令执行成功后，浏览器中打开网址<a href="http://gonghonglou.github.io" target="_blank" rel="noopener">http://gonghonglou.github.io</a>（将<code>gonghonglou</code>换成你的用户名）能看到和打开<code>http://localhost:4000</code>时一样的页面。</p>
+<p><strong>为避免每次输入Github用户名和密码的麻烦，可参照第二节方法</strong></p>
+<h3 id="2-添加ssh-key到Github"><a href="#2-添加ssh-key到Github" class="headerlink" title="2.添加ssh key到Github"></a>2.添加ssh key到Github</h3><h4 id="1-1-检查SSH-keys是否存在Github"><a href="#1-1-检查SSH-keys是否存在Github" class="headerlink" title="1.1.检查SSH keys是否存在Github"></a>1.1.检查SSH keys是否存在Github</h4><p>执行如下命令，检查SSH keys是否存在。如果有文件<code>id_rsa.pub</code>或<code>id_dsa.pub</code>，则直接进入步骤1.3将SSH key添加到Github中，否则进入下一步生成SSH key。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-生成新的ssh-key"><a href="#1-2-生成新的ssh-key" class="headerlink" title="1.2.生成新的ssh key"></a>1.2.生成新的ssh key</h4><p>执行如下命令生成public/private rsa key pair，注意将<a href="mailto:`your_email@example.com" target="_blank" rel="noopener">`your_email@example.com</a>`换成你自己注册Github的邮箱地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>默认会在相应路径下（<code>~/.ssh/id_rsa.pub</code>）生成<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件。</p>
+<h4 id="1-3-将ssh-key添加到Github中"><a href="#1-3-将ssh-key添加到Github中" class="headerlink" title="1.3.将ssh key添加到Github中"></a>1.3.将ssh key添加到Github中</h4><p>Find前往文件夹<code>~/.ssh/id_rsa.pub</code>打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到Github的Add SSH key页面即可。</p>
+<p>进入Github –&gt; Settings –&gt; SSH keys –&gt; add SSH key:</p>
+<p>Title里任意添一个标题，将复制的内容粘贴到Key里，点击下方<code>Add key</code>绿色按钮即可。</p>
+<h3 id="3-发布文章"><a href="#3-发布文章" class="headerlink" title="3.发布文章"></a>3.发布文章</h3><p>终端cd到<code>blog</code>文件夹下，执行如下命令新建文章：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;postName&quot;</span><br></pre></td></tr></table></figure>
+<p>名为<code>postName.md</code>的文件会建在目录<code>/blog/source/_posts</code>下，<code>postName</code>是文件名，为方便链接不建议掺杂汉字。你当然可以用vim来编辑文章。我在用Mou编辑器，支持预览，虽然其预览主题并非我喜欢，如果你有好用的markdown编辑器请推荐给我，感激不尽！</p>
+<p>文章编辑完成后，终端cd到<code>blog</code>文件夹下，执行如下命令来发布：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate			//生成静态页面</span><br><span class="line">hexo deploy			//将文章部署到Github</span><br></pre></td></tr></table></figure>
+<p><strong>至此，Mac上搭建基于Github的Hexo博客就完成了。下面的内容是介绍安装theme和绑定个人域名，如果有兴趣且还有耐心的话，请继续吧。</strong></p>
+<h2 id="安装theme"><a href="#安装theme" class="headerlink" title="安装theme"></a>安装theme</h2><p>你可以到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官网主题页</a>去搜寻自己喜欢的theme。这里以<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a>为例</p>
+<p>终端cd到 <code>blog</code> 目录下执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>将<code>blog</code>目录下<code>_config.yml</code>里<code>theme</code>的名称<code>landscape</code>修改为<code>next</code></p>
+<p>终端cd到<code>blog</code>目录下执行如下命令(每次部署文章的步骤)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean		//清除缓存文件 (db.json) 和已生成的静态文件 (public)</span><br><span class="line"></span><br><span class="line">$ hexo g		//生成缓存和静态文件</span><br><span class="line"></span><br><span class="line">$ hexo d		//重新部署到服务器</span><br></pre></td></tr></table></figure>
+<p>至于更改theme内容比如名称、描述、头像等去修改<code>blog/_config.yml</code>文件和<code>blog/themes/next/_config.yml</code>文件中对应的属性名称即可， 不要忘记冒号<code>:</code>后加空格。  <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener"> NexT 使用文档</a>里有极详细的介绍。</p>
+<h2 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h2><p>现在使用的域名是Github提供的二级域名，也可以绑定为自己的个性域名。购买域名，可以到<a href="https://sg.godaddy.com/zh/" target="_blank" rel="noopener">GoDaddy官网</a>，网友亲切称呼为：狗爹，也可以到<a href="http://wanwang.aliyun.com/" target="_blank" rel="noopener">阿里万网</a>购买。我是在万网买的，可直接在其网站做域名解析。</p>
+<h3 id="1-Github端"><a href="#1-Github端" class="headerlink" title="1.Github端"></a>1.Github端</h3><p>在<code>/blog/themes/next/source</code>目录下新建文件名为：<code>CNAME</code>文件，注意没有后缀名！直接将自己的域名如：<code>gonghonglou.com</code>写入。</p>
+<p>终端cd到<code>blog</code>目录下执行如下命令重新部署：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line"></span><br><span class="line">$ hexo g</span><br><span class="line"></span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意坑四：网上许多都是说在Github上直接新建<code>CNAME</code>文件，如果这样的话，在你下一次执行<code>hexo d</code>部署命令后<code>CNAME</code>文件就消失了，因为本地没有此文件嘛。</p>
+</blockquote>
+<h3 id="2-域名解析"><a href="#2-域名解析" class="headerlink" title="2.域名解析"></a>2.域名解析</h3><p>如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录。登录万网，在你购买的域名后边点击：解析 –&gt; 添加解析</p>
+<p>记录类型：CNAME</p>
+<p>主机记录：将域名解析为example.com（不带www），填写@或者不填写</p>
+<p>记录值：gonghonglou.github.io.    (不要忘记最后的<code>.</code>，<code>gonghonglou</code>改为你自己的用户名)，点击保存即可，如下图：</p>
+<p><a href="http://image.gonghonglou.com/firstblog/yumingjiexi.png" target="_blank" rel="noopener"><img src="http://image.gonghonglou.com/firstblog/yumingjiexi.png" alt="域名解析](http://localhost:4000"></a></p>
+<p>此时，点击访问<a href="http://gonghonglou.com" target="_blank" rel="noopener">http://gonghonglou.com</a>和访问<a href="http://gonghonglou.github.io" target="_blank" rel="noopener">http://gonghonglou.github.io</a>效果一致。</p>
+<p>大功告成！</p>
+<h4 id="——11-10更新-以下————————————————"><a href="#——11-10更新-以下————————————————" class="headerlink" title="——11.10更新 以下————————————————"></a>——11.10更新 以下————————————————</h4><h4 id="1、解决-deploy-后博客空白问题"><a href="#1、解决-deploy-后博客空白问题" class="headerlink" title="1、解决 deploy 后博客空白问题"></a>1、解决 deploy 后博客空白问题</h4><p>昨晚更新了一下 blog 做了个部署，结果blog就挂了，打开 <code>gonghonglou.com</code> 页面显示一片空白。然而 <code>hexo s</code> 开启本地服务器 <code>localhost:4000</code> 访问是没问题的。<br>上网查了一下，原来是 GitHub Pages 禁止了 <code>source/vendors</code> 目录的访问。Github 在 11 月 3 日更新了版本。其中包括升级了 Jekyll 到 3.3。Jekyll 为了加快构建速度，忽略 <code>vendor</code> 和 <code>node_modules</code> 文件夹。所以部署到 GitHub 后，识别不到本地下的的这个文件夹 <code>blog/themes/next/source/vendor</code>，你只需要给这个文件夹换个名字再重新部署一次就 OK 了。<code>nexT</code> 在 GitHub 上的 isusses 已经给出了解决方案：<a href="https://github.com/iissnan/hexo-theme-next/issues/1214" target="_blank" rel="noopener">#1214</a></p>
+<p><a href="http://image.gonghonglou.com/firstblog/update-hexo-folder.png" target="_blank" rel="noopener"><img src="http://image.gonghonglou.com/firstblog/update-hexo-folder.png" alt="#1214"></a></p>
+<p>还有另一种解决方案就是升级 <code>nexT</code> 主题，cd 到 <code>blog/themes/next/</code> 下执行命令 <code>git pull</code> 更新。<br>然而，有可能升级后多说评论等第三方工具会失效，慎用。</p>
+<h4 id="2、将个人博客同时部署到-GitHub-和-Coding"><a href="#2、将个人博客同时部署到-GitHub-和-Coding" class="headerlink" title="2、将个人博客同时部署到 GitHub 和 Coding"></a>2、将个人博客同时部署到 GitHub 和 Coding</h4><p>1、首先到 <a href="https://coding.net" target="_blank" rel="noopener">Coding</a> 上注册并开一个项目，项目名称和用户个性后缀相同（方便二级域名访问博客），拿到项目的 https 地址</p>
+<p>2、打开本地 <code>blog</code> 目录下的 <code>_config.yml</code> 文件，修改如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: </span><br><span class="line">            github: https://github.com/gonghonglou/gonghonglou.github.io.git</span><br><span class="line">            coding: https://git.coding.net/gonghonglou/gonghonglou.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>3、cd 到本地 <code>blog/source</code> 目录下执行如下命令新建 <code>Staticfile</code> 文件</p>
+<p><code>$ touch Staticfile  #名字必须是Staticfile</code><br>原因是 coding.net 需要以这个文件来作为静态文件部署的标志，就是说看到这个 Staticfile 就知道按照静态文件来发布。<br>4、执行发布命令 <code>hexo g</code> 、 <code>hexo d</code><br>5、个人域名添加两条 <code>CNAME</code> 解析。将 <code>gonghonglou.github.io.</code> 解析为 [海外] ，将 <code>gonghonglou.coding.me.</code> 解析为 [默认]<br><a href="http://image.gonghonglou.com/firstblog/two-cname.png" target="_blank" rel="noopener"><img src="http://image.gonghonglou.com/firstblog/two-cname.png" alt="img"></a><br>这样就是为了从国内访问 <code>gonghonglou.com</code> 就是访问 Coding 上的博客项目，从国外访问 <code>gonghonglou.com</code> 就是访问 GitHub 上的博客项目。<br>6、到 Coding 上的博客项目主页，点击 <code>Pages服务</code> 输入部署分支 <code>master</code> 立即开启<br><a href="http://image.gonghonglou.com/firstblog/coding-pages.png" target="_blank" rel="noopener"><img src="http://image.gonghonglou.com/firstblog/coding-pages.png" alt="img"></a><br>这样就可以访问自己在 Coding 上的个人博客了 <a href="http://gonghonglou.coding.me/gonghonglou" target="_blank" rel="noopener">gonghonglou.coding.me/gonghonglou</a> 如果像这样你的用户后缀名与博客项目名称相同你还可以省略项目名称直接访问 <a href="http://gonghonglou.coding.me" target="_blank" rel="noopener">gonghonglou.coding.me</a><br>7、添加域名绑定，输入个人域名就 OK 了，可能需要耐心等待几分钟，这样在国内访问自己的博客就快得多了。<br>试了一下在国内访问 <a href="http://gonghonglou.com" target="_blank" rel="noopener">gonghonglou.com</a> 拦不住 要飞起来了😂<br>——11.10更新 以上————————————————后记以上便是我搭建<a href="http://gonghonglou.com" target="_blank" rel="noopener">与佳期的个人博客(gonghonglou.com)</a>的全过程，希望对大家有所帮助，欢迎吐槽～</p>
 
       
 
@@ -219,7 +287,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">acm problem</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分享</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技能</a>
         		</li>
       		
 		</ul>
@@ -229,78 +301,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/25/postname/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/25/hello-world/" class="archive-article-date">
-  	<time datetime="2018-03-25T07:27:43.445Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/25/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/25/Mac上搭建基于GitHub的Hexo博客/">展开全文 >></a>
         </p>
       
 
@@ -444,7 +445,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">acm problem</a>
+                <a href="javascript:void(0)" class="js-tag color3">分享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技能</a>
               </li>
             
             <div class="clearfix"></div>
@@ -527,7 +532,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;博客才刚刚开始，没有什么内容&lt;br&gt;谢谢大家</div>
   	  	
     	</section>
     
