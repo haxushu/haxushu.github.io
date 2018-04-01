@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>第一章-复数与复变函数-讲义 | Xu Shu&#39;s Blog</title>
+  <title>An-Introduction-to-Lagrange-Multipliers | Xu Shu&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="中南大学学业辅导室 复变函数班  主要使用教材：《复变函数论》（第四版） 钟玉泉 讲义内容：第一章-复数与复变函数">
-<meta name="keywords" content="Complex Analysis,数学,讲义">
+  <meta name="description" content="An Introduction to Lagrange Multipliers原文地址：An Introduction to Lagrange Multipliers by Steuard Jensen Lagrange multipliers are used in multivariable calculus to find    maxima and minima of a function">
+<meta name="keywords" content="分享,数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一章-复数与复变函数-讲义">
-<meta property="og:url" content="http://yoursite.com/2018/04/01/complex-analysis-lecture-1/index.html">
+<meta property="og:title" content="An-Introduction-to-Lagrange-Multipliers">
+<meta property="og:url" content="http://yoursite.com/2018/04/01/undefined/index.html">
 <meta property="og:site_name" content="Xu Shu&#39;s Blog">
-<meta property="og:description" content="中南大学学业辅导室 复变函数班  主要使用教材：《复变函数论》（第四版） 钟玉泉 讲义内容：第一章-复数与复变函数">
-<meta property="og:updated_time" content="2018-04-01T04:40:35.911Z">
+<meta property="og:description" content="An Introduction to Lagrange Multipliers原文地址：An Introduction to Lagrange Multipliers by Steuard Jensen Lagrange multipliers are used in multivariable calculus to find    maxima and minima of a function">
+<meta property="og:image" content="http://www.slimy.com/~steuard/teaching/tutorials/Milkmaid1.gif">
+<meta property="og:image" content="http://www.slimy.com/~steuard/teaching/tutorials/Milkmaid.gif">
+<meta property="og:image" content="http://www.slimy.com/~steuard/teaching/tutorials/LagrangeConstraints.jpg">
+<meta property="og:image" content="http://www.slimy.com/~steuard/teaching/tutorials/LagrangeSurface.jpg">
+<meta property="og:image" content="http://www.slimy.com/~steuard/teaching/tutorials/rolling.gif">
+<meta property="og:updated_time" content="2018-04-01T04:48:47.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一章-复数与复变函数-讲义">
-<meta name="twitter:description" content="中南大学学业辅导室 复变函数班  主要使用教材：《复变函数论》（第四版） 钟玉泉 讲义内容：第一章-复数与复变函数">
+<meta name="twitter:title" content="An-Introduction-to-Lagrange-Multipliers">
+<meta name="twitter:description" content="An Introduction to Lagrange Multipliers原文地址：An Introduction to Lagrange Multipliers by Steuard Jensen Lagrange multipliers are used in multivariable calculus to find    maxima and minima of a function">
+<meta name="twitter:image" content="http://www.slimy.com/~steuard/teaching/tutorials/Milkmaid1.gif">
   
     <link rel="alternative" href="/atom.xml" title="Xu Shu&#39;s Blog" type="application/atom+xml">
   
@@ -164,62 +170,148 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-complex-analysis-lecture-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-An-Introduction-to-Lagrange-Multipliers" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      第一章-复数与复变函数-讲义
+      An-Introduction-to-Lagrange-Multipliers
     </h1>
   
 
         
-        <a href="/2018/04/01/complex-analysis-lecture-1/" class="archive-article-date">
-  	<time datetime="2018-04-01T04:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
+        <a href="/2018/04/01/undefined/" class="archive-article-date">
+  	<time datetime="2018-04-01T04:47:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>中南大学学业辅导室 复变函数班 </p>
-<p>主要使用教材：《复变函数论》（第四版） 钟玉泉</p>
-<p>讲义内容：第一章-复数与复变函数</p>
+        <h1 id="An-Introduction-to-Lagrange-Multipliers"><a href="#An-Introduction-to-Lagrange-Multipliers" class="headerlink" title="An Introduction to Lagrange Multipliers"></a>An Introduction to Lagrange Multipliers</h1><p>原文地址：<a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html" target="_blank" rel="noopener">An Introduction to Lagrange Multipliers by Steuard Jensen</a></p>
+<p>Lagrange multipliers are used in multivariable calculus to find    maxima and minima of a function subject to constraints (like “find    the highest elevation along the given path” or “minimize the cost  of materials for a box enclosing a given volume”). It’s a useful    technique, but all too often it is poorly taught and poorly    understood. With luck, this overview will help to make the concept    and its applications a bit clearer.</p>
+<p>Be warned: this page may not be what you’re looking for! If you’re looking for detailed proofs, I recommend consulting your    favorite textbook on multivariable calculus: my focus here is on    concepts, not mechanics. (Comes of being a physicist rather than a    mathematician, I guess.) If you want to know about Lagrange    multipliers in the calculus of variations, as often used in    Lagrangian mechanics in physics, this page <a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#CalcVari" target="_blank" rel="noopener">only discusses them briefly</a>.</p>
+<p>Here’s a basic outline of this discussion:</p>
+<ul>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Basics" target="_blank" rel="noopener">When are Lagrange multipliers useful?</a></p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Milkmaid" target="_blank" rel="noopener">A classic example: the “milkmaid problem”</a></p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Graphical" target="_blank" rel="noopener">Graphical inspiration for the method</a></p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Method" target="_blank" rel="noopener">The mathematics of Lagrange multipliers</a></p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Mathematical" target="_blank" rel="noopener">A formal mathematical inspiration</a></p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#SeveralConstraints" target="_blank" rel="noopener">Several constraints at once</a></p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Meaning" target="_blank" rel="noopener">The meaning of the multiplier</a>      (inspired by physics and economics)</p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Examples" target="_blank" rel="noopener">Examples of Lagrange multipliers in action</a></p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#CalcVari" target="_blank" rel="noopener">Lagrange multipliers in the calculus of variations (often in physics)</a></p>
+</li>
+<li><p><a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#NoSlip" target="_blank" rel="noopener">An example: rolling without slipping</a></p>
 <a id="more"></a>
-<h1 id="开课寄语"><a href="#开课寄语" class="headerlink" title="开课寄语"></a>开课寄语</h1><p>自我介绍 联系方式（QQ，手机）</p>
-<p>学好复变函数的意义：加权（奖学金、荣誉奖励）；保研考试、考研复试；后续课程</p>
-<p>如何学好复变函数：演绎科学，定义和定理；多参考基本教科书，多做习题总结，多看几遍温故知新</p>
-<p>辅导班的目的：打好基础，享受考试；结合课后习题和部分补充习题梳理书本重要知识点，适当补充相关内容</p>
-<h1 id="复数与复变函数"><a href="#复数与复变函数" class="headerlink" title="复数与复变函数"></a>复数与复变函数</h1><p>介绍什么是(单)复变函数 对应于数学分析中的函数，自变量和因变量都为<strong>复数</strong></p>
-<h2 id="复数的表示形式"><a href="#复数的表示形式" class="headerlink" title="复数的表示形式"></a>复数的表示形式</h2><h3 id="代数形式"><a href="#代数形式" class="headerlink" title="代数形式"></a>代数形式</h3><p>多项式方程求根 特别地，二项方程中的$x^2=-1<del>=&gt;</del>x=i$</p>
-<p>扩充数域$R<del>=&gt;</del>C$，定义复数域中的运算，需要引入代数形式$z=x+iy$</p>
-<p>定义相等，类比多项式 加减<strong>共轭（四则运算、复根成对出现）</strong> 乘除开方（开方值不唯一）：$(-8)^{1/3}=  -2,1-\sqrt3i,1+\sqrt3i $</p>
-<p>模的定义 不等式、等式的证明 （1.2.4，1.2.5，1.2.6）</p>
-<h3 id="三角形式"><a href="#三角形式" class="headerlink" title="三角形式"></a>三角形式</h3><p>平面点的对应，引入极坐标三角形式 $r(cos\theta+isin\theta), r&gt;0 $，建立了与几何的紧密联系</p>
-<p>模和幅角的几何意义</p>
-<p>幅角 Arg arg 主值 1.1.1</p>
-<p>加减 共轭 的几何意义</p>
-<h3 id="指数形式-re-i-theta-r-gt-0"><a href="#指数形式-re-i-theta-r-gt-0" class="headerlink" title="指数形式  $re^{i \theta} ,r&gt;0$"></a>指数形式  $re^{i \theta} ,r&gt;0$</h3><p>数学分析下册P64 复变量的指数函数·欧拉公式</p>
-<p>优点：方便乘除运算，呈现乘除的几何意义（1.2.1、1.2.2），模的乘除运算；定义开方运算（1.1.3 ）</p>
-<p>补充：可以导出 三角恒等式：两角和、进而有和差化积</p>
-<h2 id="复-函-数与几何"><a href="#复-函-数与几何" class="headerlink" title="复(函)数与几何"></a>复(函)数与几何</h2><p>复数的模、运算有着十分生动的几何意义，因而复数之间的关系式能够反映出它们在复平面上的几何关系；复变函数的变换（映射）本质给出了“两张”复平面上点的对应关系。这决定了它们能够作为今后我们研究平面几何的有力工具。</p>
-<h3 id="复数方程-gt-几何对象"><a href="#复数方程-gt-几何对象" class="headerlink" title="复数方程=&gt;几何对象"></a>复数方程=&gt;几何对象</h3><p>学会从代数关系理解几何意义</p>
-<p>几个典型例子 </p>
-<p>1.1.4，1.1.6，1.1.10</p>
-<p><strong>1.1.7</strong>    1.1.8</p>
-<p>​       1.2.10 ，1.2.3</p>
-<p>1.1.11</p>
-<h4 id="反演变换"><a href="#反演变换" class="headerlink" title="反演变换"></a>反演变换</h4><p>1.2.11在数学物理中的应用（球壳电势、Green函数）</p>
-<h3 id="几何对象-gt-复数方程"><a href="#几何对象-gt-复数方程" class="headerlink" title="几何对象=&gt;复数方程"></a>几何对象=&gt;复数方程</h3><p>学会用代数关系刻画几何关系</p>
-<p>1.1.5 1.2.8</p>
-<h2 id="复数的点集拓扑基础"><a href="#复数的点集拓扑基础" class="headerlink" title="复数的点集拓扑基础"></a>复数的点集拓扑基础</h2><h3 id="极限理论"><a href="#极限理论" class="headerlink" title="极限理论"></a>极限理论</h3><p>距离 邻域  定义极限收敛 复数列收敛的等价定义（1.1.17 代数和三角）</p>
-<p>柯西收敛准则（1.1.18） 的启示、总结方法 借助实数域的结论使其推广到复数域</p>
-<p>引理和定理的作用：灵活运用已知结论 省去重复工作</p>
-<p>习题1.1.19</p>
-<h3 id="连续性理论"><a href="#连续性理论" class="headerlink" title="连续性理论"></a>连续性理论</h3><p>连续的等价定理、四则运算 1.1.15，1.1.12</p>
-<p>1.1.13，1.1.16，1.1.20 </p>
+</li>
+</ul>
+<hr>
+<h2 id="When-are-Lagrange-multipliers-useful"><a href="#When-are-Lagrange-multipliers-useful" class="headerlink" title="When are Lagrange multipliers useful?"></a>When are Lagrange multipliers useful?</h2><p>One of the most common    problems in calculus is that of finding maxima or minima (in general, “extrema”) of a function, but it is often difficult to    find a closed form for the function being extremized. Such    difficulties often arise when one wishes to maximize or minimize a    function subject to fixed outside conditions or constraints. The    method of Lagrange multipliers is a powerful tool for solving this    class of problems without the need to explicitly solve the    conditions and use them to eliminate extra variables.</p>
+<p>Put more simply, it’s usually not enough to ask, “How do I    minimize the aluminum needed to make this can?”  (The answer to    that is clearly “Make a really, really small can!”)  You need to    ask, “How do I minimize the aluminum <em>while making sure the can will hold 10 ounces of soup</em>?”  Or similarly, “How do I    maximize my factory’s profit <em>given that I only have $15,000 to    invest</em>?”  Or to take a more sophisticated example, “How    quickly will the roller coaster reach the ground <em>assuming it    stays on the track</em>?”  In general, Lagrange multipliers are    useful when some of the variables in the simplest description of a    problem are made redundant by the constraints.</p>
+<h2 id="A-classic-example-the-“milkmaid-problem”"><a href="#A-classic-example-the-“milkmaid-problem”" class="headerlink" title="A classic example: the “milkmaid problem”"></a>A classic example: the “milkmaid problem”</h2><p>To give a specific, intuitive illustration of this kind of    problem, we will consider a classic example which I believe is    known as the “Milkmaid problem”. It can be phrased as follows:</p>
+<p>It’s milking time at the farm, and the milkmaid has been    sent to the field to get the day’s milk. She’s in a hurry to    get back for a date with a handsome young goatherd, so she    wants to finish her job as quickly as possible. However, before    she can gather the milk, she has to rinse out her bucket in the  nearby river.</p>
+<p><img src="http://www.slimy.com/~steuard/teaching/tutorials/Milkmaid1.gif" alt="A picture of a milkmaid and a cow near a river."></p>
+<p>Just when she reaches point <strong>M</strong>, our heroine spots the    cow, way down at point <strong>C</strong>. Because she is in a hurry, she    wants to take the shortest possible path from where she is to the    river and then to the cow. So what is the best point <strong>P</strong> on    the riverbank for her to rinse the bucket? (To keep things simple,    we assume that the field is flat and uniform and that all points    on the river bank are equally good.)</p>
+<p>To put this into more mathematical terms, the milkmaid wants to    find the point <strong>P</strong> for which the total distance f(<strong>P</strong>)    is a minimum, where f(<strong>P</strong>) is the sum of the distance    d(<strong>M</strong>,<strong>P</strong>) from <strong>M</strong> to <strong>P</strong> and the distance    d(<strong>P</strong>,<strong>C</strong>) from <strong>P</strong> to <strong>C</strong> (a straight line is    the shortest distance between two points across a flat field).    It’s not quite this simple, however: if that were the whole    problem, then we could just choose <strong>P</strong> anywhere on the line    between <strong>M</strong> and <strong>C</strong> and the milkmaid would walk straight    to the cow. But we have to impose the <em>constraint</em> that    <strong>P</strong> is a point on the riverbank.    </p>
+<p>To express that constraint in equations, we can describe the    shape of the near bank of the river as a curve satisfying some    function g(x,y) = 0. (For example, if the river were a    parabola we might choose    g(x,y) = y - x2. If it were instead    a circular lake of radius r, we might choose    g(x,y) = x2 + y2 - r2.)    So formally, we must minimize the function    f(<strong>P</strong>) = d(<strong>M</strong>,<strong>P</strong>) + d(<strong>P</strong>,<strong>C</strong>), subject to the constraint that    g(<strong>P</strong>) = 0.</p>
+<h2 id="Graphical-inspiration-for-the-method"><a href="#Graphical-inspiration-for-the-method" class="headerlink" title="Graphical inspiration for the method"></a>Graphical inspiration for the method</h2><p>Our first way of thinking about this problem can be obtained    directly from the picture itself. We want to visualize how far the    milkmaid could get for any fixed total distance f(<strong>P</strong>), and    use that visualization to locate the optimal point <strong>P</strong>. If we    only cared about the distance of <strong>P</strong> from <strong>M</strong>, we might    picture this as a set of concentric circles (curves of constant    distance d(<strong>M</strong>,<strong>P</strong>): 5 meters, 10 meters, 15 meters,    etc.). As soon as one of those circles was big enough to touch the    river, we’d recognize the point where it touched as the closest    riverbank point to <strong>M</strong> (and its radius as the minimum    distance).</p>
+<p>​    </p>
+<p>Of course, for most problems the curves of constant f(<strong>P</strong>)    are more complicated than a bunch of concentric circles! (Often    <em>much</em> more complicated.) But our particular example is    made simpler by an obscure fact from geometry: for every point    <strong>P</strong> on a given ellipse, the total distance from one focus of    the ellipse to <strong>P</strong> and then to the other focus is exactly the    same. (You don’t need to know where this fact comes from to    understand the example! But you can see it work for yourself by    drawing a near-perfect ellipse with the help of two nails, a    pencil, and a loop of string.)</p>
+<p>In our problem, that means that the milkmaid could get to the    cow by way of any point on a given ellipse in the same amount of    time: the ellipses are curves of constant f(<strong>P</strong>). Therefore,    to find the desired point <strong>P</strong> on the riverbank, we must    simply find the smallest ellipse with <strong>M</strong> and <strong>C</strong> as    foci that intersects the curve of the river. Just to be clear,    only the “constant f(<strong>P</strong>)” property of the curves is really    important; the fact that these curves are ellipses is just a lucky    convenience (ellipses are easy to draw). The same idea will work    no matter what shape the curves of constant f(<strong>P</strong>) happen to    be.</p>
+<p><img src="http://www.slimy.com/~steuard/teaching/tutorials/Milkmaid.gif" alt="The same picture, but with ellipses around the    milkmaid and cow."></p>
+<p>The image at right shows a sequence of ellipses of larger    and larger size whose foci are <strong>M</strong> and <strong>C</strong>, ending    with the one that is just <em>tangent</em> to the riverbank.    This is a very significant word! It is obvious from the picture    that the “perfect” ellipse and the river are truly tangential    to each other at the ideal point <strong>P</strong>. More mathematically,    this means that the normal vector to the ellipse is in the same    direction as the normal vector to the riverbank. A few minutes’    thought about pictures like this will convince you that this    fact is not specific to this problem: it is a general property    whenever you have constraints. And that is the insight that    leads us to the method of Lagrange multipliers.</p>
+<h2 id="The-mathematics-of-Lagrange-multipliers"><a href="#The-mathematics-of-Lagrange-multipliers" class="headerlink" title="The mathematics of Lagrange multipliers"></a>The mathematics of Lagrange multipliers</h2><p>In multivariable calculus, the gradient of a function h    (written ∇h) is a normal vector to a curve (in two    dimensions) or a surface (in higher dimensions) on which h is    constant:    <strong>n</strong> = ∇h(<strong>P</strong>).  The length of the normal    vector doesn’t matter: any constant multiple of ∇h(<strong>P</strong>)    is also a normal vector. In our case, we have two functions whose    normal vectors are parallel, so</p>
+<p>​      ∇f(<strong>P</strong>) = λ ∇g(<strong>P</strong>).    </p>
+<p>The unknown constant multiplier λ is    necessary because the magnitudes of the two gradients may be    different.  (Remember, all we know is that their directions are    the same.)</p>
+<p>In D dimensions, we now have D+1 equations in D+1 unknowns.  D    of the unknowns are the coordinates of <strong>P</strong> (e.g.  x, y,    and z for D = 3), and the other is the new unknown    constant λ. The equation for the gradients derived above is    a vector equation, so it provides D equations of constraint. I    once got stuck on an exam at this point: don’t let it happen to    you! The original constraint equation g(<strong>P</strong>) = 0 is    the final equation in the system. Thus, in general, a unique    solution exists.</p>
+<p>As in many maximum/minimum problems, cases do exist with    multiple solutions.  There can even be an infinite number of    solutions if the constraints are particularly degenerate: imagine    if the milkmaid and the cow were both already standing right at    the bank of a straight river, for example.  In many cases, the    actual value of the Lagrange multiplier isn’t interesting, but    there are some situations in which it can give useful information    (as discussed <a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Meaning" target="_blank" rel="noopener">below</a>).</p>
+<p>That’s it: that’s all there is to Lagrange multipliers. Just    set the gradient of the function you want to extremize equal to    the gradient of the constraint function.  You’ll get a vector’s    worth of (algebraic) equations, and together with the original    constraint equation they determine the solution.</p>
+<h2 id="A-formal-mathematical-inspiration"><a href="#A-formal-mathematical-inspiration" class="headerlink" title="A formal mathematical inspiration"></a>A formal mathematical inspiration</h2><p>There is another way to think of Lagrange multipliers that may    be more helpful in some situations and that can provide a better    way to remember the details of the technique (particularly with    multiple constraints as described below). Once again, we start    with a function f(<strong>P</strong>) that we wish to extremize, subject to    the condition that g(<strong>P</strong>) = 0. Now, the usual way    in which we extremize a function in multivariable calculus is to    set ∇f(<strong>P</strong>) = 0. How can we put this    condition together with the constraint that we have?</p>
+<p>One answer is to add a new variable λ to the problem,    and to define a new function to extremize:</p>
+<p>​      F(<strong>P</strong>, λ) = f(<strong>P</strong>) - λ g(<strong>P</strong>).    </p>
+<p>(Some references call this F “the Lagrangian    function”. I am not familiar with that usage, although it must be    related to the somewhat similar “Lagrangian” used in advanced    physics.)</p>
+<p>We next set ∇F(<strong>P</strong>, λ) = 0,    but keep in mind that the gradient is now D + 1    dimensional: one of its components is a partial derivative with    respect to λ. If you set this new component of the gradient    equal to zero, you get the constraint equation    g(<strong>P</strong>) = 0. Meanwhile, the old components of the    gradient treat λ as a constant, so it just pulls through.    Thus, the other D equations are precisely the D equations found in    the graphical approach above.</p>
+<p>As presented here, this is just a trick to help you reconstruct    the equations you need. However, for those who go on to    use <a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#CalcVari" target="_blank" rel="noopener">Lagrange multipliers in the calculus of    variations</a>, this is generally the most useful approach. I    suspect that it is in fact very fundamental; my comments    about <a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Meaning" target="_blank" rel="noopener">the meaning of the multiplier</a> below    are a step toward exploring it in more depth, but I have never    spent the time to work out the details.</p>
+<h2 id="Several-constraints-at-once"><a href="#Several-constraints-at-once" class="headerlink" title="Several constraints at once"></a>Several constraints at once</h2><p>If you have more than one constraint, all you need to do is to    replace the right hand side of the equation with the sum of the    gradients of each constraint function, each with its own    (different!) Lagrange multiplier.  This is usually only relevant    in at least three dimensions (since two constraints in two    dimensions generally intersect at isolated points).</p>
+<p>Again, it is easy to understand this graphically.  [My thanks    to Eric Ojard for suggesting this approach].  Consider the example    shown at right: the solution is constrained to lie on the brown    plane (as an equation, “g(<strong>P</strong>) = 0”) and also to    lie on the purple ellipsoid (“h(<strong>P</strong>) = 0”).  For    both to be true, the solution must lie on the black ellipse where    the two intersect.  I have drawn several normal vectors to each    constraint surface along the intersection.  The important    observation is that both normal vectors are perpendicular to the    intersection curve at each point.  In fact, any vector    perpendicular to it can be written as a linear combination of the    two normal vectors.  (Assuming the two are linearly independent!    If not, the two constraints may already give a specific solution:    in our example, this would happen if the plane constraint was    exactly tangent to the ellipsoid constraint at a single    point.)</p>
+<p><img src="http://www.slimy.com/~steuard/teaching/tutorials/LagrangeConstraints.jpg" alt="A plane intersecting an ellipsoid (giving an    ellipse)."></p>
+<p><img src="http://www.slimy.com/~steuard/teaching/tutorials/LagrangeSurface.jpg" alt="A set of ellipsoids around the same foci, one of    which is just tangent to the intersection of the constraints."></p>
+<p>The significance of this becomes clear when we consider a three    dimensional analogue of the milkmaid problem.  The pink ellipsoids    at right all have the same two foci (which are faintly visible as    black dots in the middle), and represent surfaces of constant total    distance for travel from one focus to the surface and back to the    other.  As in two dimensions, the optimal ellipsoid    is <em>tangent</em> to the constraint curve, and consequently its    normal vector is perpendicular to the combined constraint (as    shown).  Thus, the normal vector can be written as a linear    combination of the normal vectors of the two constraint surfaces.    In equations, this statement reads</p>
+<p>​      ∇f(<strong>P</strong>) = λ ∇g(<strong>P</strong>) + μ ∇h(<strong>P</strong>).    </p>
+<p>just as described above.  The generalization    to more constraints and higher dimensions is exactly the same.</p>
+<h2 id="The-meaning-of-the-multiplier"><a href="#The-meaning-of-the-multiplier" class="headerlink" title="The meaning of the multiplier"></a>The meaning of the multiplier</h2><p>As a final note, I’ll say a few words about what the Lagrange    multiplier “means”, in ways inspired by both physics and    economics.  In our mostly geometrical discussion so far, λ    was just an artificial variable that lets us compare the    directions of the gradients without worrying about their    magnitudes.  But in cases where the function f(<strong>P</strong>) and the    constraint g(<strong>P</strong>) have specific meanings, the Lagrange    multiplier often has an identifiable significance as well.</p>
+<p>One example of this is inspired by the physics of forces and    potential energy.  In the formal approach based on the combined    “Lagrangian function” F(<strong>P</strong>, λ) described <a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#Mathematical" target="_blank" rel="noopener">two sections above</a>, the constraint    function g(<strong>P</strong>) can be thought of as “competing” with the    desired function f(<strong>P</strong>) to “pull” the point <strong>P</strong> to its    minimum or maximum. The Lagrange multiplier λ can be    thought of as a measure of how hard g(<strong>P</strong>) has to pull in    order to make those “forces” balance out on the constraint    surface.  (This generalizes naturally to multiple constraints,    which typically “pull” in different directions.)  And in fact,    that word “forces” is very significant: in physics based on    Lagrange multipliers in the calculus of variations (<a href="http://www.slimy.com/~steuard/teaching/tutorials/Lagrange.html#CalcVari" target="_blank" rel="noopener">as described below</a>) this analogy turns out to    be literally true: there, λ <em>is</em> the force of    constraint.</p>
+<p>The Lagrange multiplier λ has meaning in economics as    well.  If you’re maximizing profit subject to a limited resource,    λ is that resource’s marginal value (sometimes called the    “shadow price” of the resource).  Specifically, the value of the    Lagrange multiplier is the rate at which the optimal value of the    function f(<strong>P</strong>) changes if you change the constraint.</p>
+<p>I don’t have an immediate intuitive explanation for why this is    true, but the steps of the formal proof are at least reasonably    illuminating. To demonstrate this result mathematically (following    the approach of <a href="http://www.economics.utoronto.ca/osborne/MathTutorial/ILMF.HTM" target="_blank" rel="noopener">this    economics-inspired tutorial</a> by Martin Osborne), write the    constraint in the form    “g(<strong>P</strong>) = g(x,y) = c” for some constant    c. (This is mathematically equivalent to our usual g(<strong>P</strong>)=0,    but allows us to easily describe a whole family of constraints.    Also, I am writing this in terms of just two coordinates x and y    for clarity, but the generalization to more is straightforward.)    For any given value of c, we can use Lagrange multipliers to find    the optimal value of f(<strong>P</strong>) and the point where it occurs.    Call that optimal value f0, occurring at coordinates    (x0, y0) and with Lagrange multiplier    λ0. The answers we get will all depend on what    value we used for c in the constraint, so we can think of these as    functions of c: f0(c), x0(c), and    y0(c).</p>
+<p>To find how the optimal value changes when you change the    constraint, just take the derivative: df0/dc.  Of course,    f(<strong>P</strong>) only depends on c because the optimal coordinates    (x0, y0) depend on c: we could write it as f0(x0(c),y0(c)).    So we have to use the (multivariable) chain rule:</p>
+<p>​      df0/dc = ∂f0/∂x0 dx0/dc + ∂f0/∂y0 dy0/dc = ∇f0 ∙ d<strong>x</strong>0/dc    </p>
+<p>In the final step, I’ve suggestively written    this as a dot product between the gradient of f0 and the    derivative of the coordinate vector.  So here’s the clever trick:    use the Lagrange multiplier equation to substitute    ∇f = λ∇g:</p>
+<p>​      df0/dc = λ0 ∇g0 ∙ d<strong>x</strong>0/dc      = λ0 dg0/dc    </p>
+<p>But the constraint function    is <em>always</em> equal to c, so dg0/dc = 1.  Thus,    df0/dc = λ0.  That is, the Lagrange multiplier    is the rate of change of the optimal value with respect to    changes in the constraint.</p>
+<p>This is a powerful result, but be careful when using it!  In    particular, you have to make sure that your constraint function is    written in just the right way.  You would get the exact same    optimal value f0 whether you wrote    “g(x,y) = x+y = 0” or    “g(x,y) = -2x-2y = 0”, but the resulting    Lagrange multipliers would be quite different.</p>
+<p>I haven’t studied economic applications Lagrange multipliers    myself, so if that is your interest you may want to look for other    discussions from that perspective once you understand the basic    idea.    (The <a href="http://www.economics.utoronto.ca/osborne/MathTutorial/" target="_blank" rel="noopener">tutorial</a>    that inspired my discussion here seems reasonable.)  The best way    to understand is to try working examples yourself; you might    appreciate    this <a href="http://www.swarthmore.edu/NatSci/smaurer1/Math18H/Lagrange_econ.pdf" target="_blank" rel="noopener">problem    set introducing Lagrange multipliers in economics</a> both for    practice and to develop intuition.</p>
+<hr>
+<h2 id="Examples-of-Lagrange-multipliers-in-action"><a href="#Examples-of-Lagrange-multipliers-in-action" class="headerlink" title="Examples of Lagrange  multipliers in action"></a>Examples of Lagrange  multipliers in action</h2><h3 id="A-box-of-minimal-surface-area"><a href="#A-box-of-minimal-surface-area" class="headerlink" title="A box of minimal surface area"></a>A box of minimal surface area</h3><p>What shape should a rectangular box with a specific volume    (in three dimensions) be in order to minimize its surface area?    (Questions like this are very important for businesses that    want to save money on packing materials.) Some people may be    able to guess the answer intuitively, but we can prove it using    Lagrange multipliers.</p>
+<p>Let the lengths of the box’s edges be x, y, and z. Then the    constraint of constant volume is simply    g(x,y,z) = xyz - V = 0, and the    function to minimize is f(x,y,z) = 2(xy+xz+yz). The    method is straightforward to apply:</p>
+<p>​      2&lt;y+z, x+z, x+y&gt; = ∇f(x,y,z)      = λ ∇g(x,y,z)      = λ &lt;yz, xz, xy&gt;.    </p>
+<p>(The angle bracket notation &lt;a,b,c&gt; is    one conventional way to denote a vector.) Now just solve those    three equations; the solution is    x = y = z = 4/λ. We could    eliminate λ from the problem by using xyz = V,    but we don’t need to: it is already clear that the optimal shape    is a cube.</p>
+<hr>
+<h3 id="The-closest-approach-of-a-line-to-a-point"><a href="#The-closest-approach-of-a-line-to-a-point" class="headerlink" title="The closest approach of a line to a point"></a>The closest approach of a line to a point</h3><p>This example isn’t the perfect illustration of where Lagrange    multiples are useful, since it is fairly easy to solve without    them and not all that convenient to solve with them. But it’s a    very simple idea, and because of a careless mistake on my part it    was the first example that I applied the technique to. Here’s the    story…</p>
+<p>When I first took multivariable calculus (and before we    learned about Lagrange multipliers), my teacher showed the    example of finding the point <strong>P</strong> = &lt;x,y&gt;    on a line (y = m x + b) that was    closest to a given point    <strong>Q</strong> = &lt;x0,y0&gt;. The    function to minimize is of course</p>
+<p>​      d(<strong>P</strong>,<strong>Q</strong>) = sqrt[(x-x0)²      + (y-y0)²].    </p>
+<p>(Here, “sqrt” means “square root”, of    course; that’s hard to draw in plain text.)</p>
+<p>The teacher went through the problem on the board in the    most direct way (I’ll explain it later), but it was taking him    a while and I was a little bored, so I idly started working the    problem myself while he talked. I just leapt right in and set    ∇d(x,y) = 0, so</p>
+<p>​      &lt;x-x0, y-y0&gt;      / sqrt[(x-x0)² + (y-y0)²]      = &lt;0,0&gt;,    </p>
+<p>and thus x = x0 and    y = y0. My mistake here is obvious, so I    won’t blame you for having a laugh at my expense: I forgot to    impose the constraint that &lt;x,y&gt; be on the line! (In my    defense, I wasn’t really focusing on what I was doing, since I    was listening to lecture at the same time.) I felt a little    silly, but I didn’t think much more about it.</p>
+<p>Happily, we learned about Lagrange multipliers the very next    week, and I immediately saw that my mistake had been a perfect    introduction to the technique. We write the equation of the line    as    g(x,y) = y - m x - b = 0,    so ∇g(x,y) = &lt;-m,1&gt;. So we just set the two    gradients equal (up to the usual factor of λ), giving</p>
+<p>​      &lt;x-x0, y-y0&gt;      / sqrt[(x-x0)² + (y-y0)²]      = λ&lt;-m,1&gt;.    </p>
+<p>The second component of this equation is just    an equation for λ, so we can substitute that value for    λ into the first component equation. The denominators are    the same and cancel, leaving just    (x-x0) = -m(y-y0).  Finally, we    substitute y = m x+b, giving    x-x0 = -m² x - m b + m y0,    so we come to the final answer:    x = (x0 + m y0 - m b) / (m² + 1).    (And thus    y = (m x0 + m² y0 + b)/(m² + 1).)</p>
+<p>So what did my teacher actually do? He used the equation of    the line to substitute y for x in d(<strong>P</strong>,<strong>Q</strong>), which    left us with an “easy” single-variable function to deal with…    but a rather complicated one:</p>
+<p>​      d(<strong>P</strong>,<strong>Q</strong>) = sqrt[(x - x0)²      + (m x + b - y0)²]           </p>
+<p>To solve the problem from this point, you    take the derivative and set it equal to zero as usual. It’s a    bit of a pain, since the function is a mess, but the answer is    x = (x0 + m y0 - m b)/(m² + 1).    That’s exactly what we got earlier, so both methods seem to    work. In this case, the second method may be a little faster    (though I didn’t show all of the work), but in more complicated    problems Lagrange multipliers are often much easier than the    direct approach.</p>
+<hr>
+<p>Finally, I’ve recorded a couple of video examples of solving    problems using Lagrange multipliers. They’re far from perfect, and    they’re aimed more at problem solving than explaining the    concepts, but some folks may be interested. The first does try to    explain the concepts a little in the context of <a href="http://www.youtube.com/watch?v=tigM1acQ2Co" target="_blank" rel="noopener">finding the closest point to the origin on a parabola</a>. Another is purely    problem solving, ostensibly about <a href="http://www.youtube.com/watch?v=t7fUPsM9YsM" target="_blank" rel="noopener">finding the nearest water to a house</a>:</p>
+<p>I’ve also recorded a video example involving a    (somewhat artificial) <a href="http://www.youtube.com/watch?v=lj148TCnyCE" target="_blank" rel="noopener">commodities    trading firm with five parameters and two constraints</a>:</p>
+<hr>
+<h2 id="Lagrange-multipliers-in-the-calculus-of-variations-often-in-physics"><a href="#Lagrange-multipliers-in-the-calculus-of-variations-often-in-physics" class="headerlink" title="Lagrange multipliers in the calculus of variations (often in physics)"></a>Lagrange multipliers in the calculus of variations (often in physics)</h2><p>This section will be brief, in part because most readers    have probably never heard of the calculus of variations. Many    people first see this idea in advanced physics classes that    cover Lagrangian mechanics, and that will be the perspective    taken here (in particular, I will use variable names inspired    by physics). If you don’t already know the basics of this    subject (specifically, the Euler-Lagrange equations), you’ll    probably want to just skip this section.</p>
+<p>The calculus of variations is essentially an extension of    calculus to the case where the basic variables are not simple    numbers <strong>x</strong>i (which can be thought of as a    position) but functions <strong>x</strong>i(t) (which in    physics corresponds to a position that changes in time). Rather    than seeking the numbers <strong>x</strong>i that extremize a    function f(<strong>x</strong>i), we seek the    <em>functions</em> <strong>x</strong>i(t) that extremize the    integral (dt) of a function    L[<strong>x</strong>i(t), <strong>x</strong>i’(t), t],    where <strong>x</strong>i’(t) are the time derivatives of    <strong>x</strong>i(t). (The reason we have to integrate first    is to get an ordinary number out: we know what “maximum” and    “minimum” mean for numbers, but there could be any number of    definitions of those concepts for functions.) In most cases, we    integrate between fixed values t0 and t1,    and we hold the values <strong>x</strong>i(t0) and    <strong>x</strong>i(t1) fixed. (In physics, that    means that the initial and final positions are held constant,    and we’re interested finding the “best” path to get between    them; L defines what we mean by “best”.)</p>
+<p>The solutions to this problem can be shown to satisfy the    Euler-Lagrange equations (I have suppressed the “(t)” in the    functions <strong>x</strong>i(t):</p>
+<p>​      ∂L/∂<strong>x</strong>i - d/dt ( ∂L/∂<strong>x</strong>i’ )      = 0.    </p>
+<p>(Note that the derivative d/dt is a total    derivative, while the derivatives with respect    to <strong>x</strong>i and    <strong>x</strong>i’ are “partials”, at least formally.)</p>
+<p>Imposing constraints on this process is often essential. In    physics, it is common for an object to be constrained on some    track or surface, or for various coordinates to be related (like    position and angle when a wheel rolls without slipping, as    discussed below).  To do this, we follow a simple generalization    of the procedure we used in ordinary calculus. First, we write the    constraint as a function set equal to zero:    g(<strong>x</strong>i, t) = 0. (Constraints that    necessarily involve the derivatives of    <strong>x</strong>i often cannot be solved.) And second, we    add a term to the function L that is multiplied by a new    function λ(t):    Lλ[<strong>x</strong>i, <strong>x</strong>i’, λ, t] = L[<strong>x</strong>i, <strong>x</strong>i’, t] + λ(t) g(<strong>x</strong>i, t).</p>
+<p>From here, we proceed exactly as you would expect:    λ(t) is treated as another coordinate function, just as    λ was treated as an additional coordinate in ordinary    calculus. The Euler-Lagrange equations are then written as</p>
+<p>​      ∂L/∂<strong>x</strong>i -      d/dt (∂L/∂<strong>x</strong>i’) +      λ(t) (∂g/∂<strong>x</strong>i) = 0.    </p>
+<p>This can be generalized to the case of    multiple constraints precisely as before, by introducing    additional Lagrange multiplier functions like λ.  There are    further generalizations possible to cases where the constraint(s)    are linear combinations of derivatives of the coordinates (rather    than the coordinates themselves), but I won’t go into that much    detail here.</p>
+<p>As mentioned in the calculus section, the meaning of the    Lagrange multiplier function in this case is surprisingly    well-defined and can be quite useful. It turns out that    <strong>Q</strong>i = λ(t) (∂g/∂<strong>x</strong>    i) is precisely the force required to impose the constraint    g(<strong>x</strong>i, t) (in the “direction”    of <strong>x</strong>i). This is fairly natural: the constraint    term (λ g) added to the Lagrangian plays the same role    as a (negative) potential energy -Vconstraint, so we    can compute the resulting force as    ∇(-Vconstr) = λ ∇g in    something reminiscent of the usual way. Thus, for example,    Lagrange multipliers can be used to calculate the force you would    feel while riding a roller coaster. If you want this information,    Lagrange multipliers are one of the best ways to get it.</p>
+<hr>
+<h2 id="An-example-rolling-without-slipping"><a href="#An-example-rolling-without-slipping" class="headerlink" title="An example: rolling without slipping"></a>An example: rolling without slipping</h2><p>One of the simplest applications of Lagrange multipliers in the    calculus of variations is a ball (or other round object) rolling    down a slope without slipping in one dimension.  (As usual, a    problem this simple can probably be solved just as easier by other    means, but it still illustrates the idea.)  Let the ball have mass    M, moment of inertia I, and radius R, and let the angle of the    slope be α.  We choose the coordinate x to point up the    slope and the coordinate θ to show rotation in the direction    that would naturally go in that same direction, so that the    “rolling without slipping” condition is    x = R θ.  Both x and θ are functions of    time, x(t) and θ(t), but for clarity I will not write that    dependence explicitly.</p>
+<p><img src="http://www.slimy.com/~steuard/teaching/tutorials/rolling.gif" alt="A round object rolling down a slope."></p>
+<p>In general, the kinetic energy T of an object undergoing both    translational and rotational motion is    T = ½ M (x’)2 + ½ I (θ’)2.    (As before, the prime (‘) denotes a time derivative, so this is a    function of velocity and angular velocity.)  Meanwhile, the    potential energy V of the ball can be written as    V = M g h =    M g x sin α.  Thus, the Lagrangian for    the system is</p>
+<p>​      L = T - V =      ½ M (x’)2 + ½ I (θ’)2      - M g x sin α.    </p>
+<p>If we solved the Euler-Lagrange equations for this Lagrangian    as it stands, we would find that x(t) described the ball sliding    down the slope with constant acceleration in the absence of    friction while θ(t) described the ball rotating with    constant angular velocity: the rotational motion and translational    motion are completely independent (and no torques act on the    system).  To impose the condition of rolling without slipping, we    use a Lagrange multiplier function λ(t) to force the    constraint function    G(x,θ,t) = x - R θ to    vanish:</p>
+<p>​      L =      ½ M (x’)2 + ½ I (θ’)2      -      M g x sin α +      λ (x - R θ).    </p>
+<p>(That is, λ is multiplying the    constraint function, as usual.)  We now find the Euler-Lagrange    equations for each of the <em>three</em> functions of time: x,    θ, and λ.  Respectively, the results are:</p>
+<p>​      M x’’ + M g sin α + λ = 0<br>​      I θ’’ - R λ = 0,       and<br>​      x - R θ = 0.</p>
+<p>It is then straightforward to solve for the    three “unknowns” in these equations:</p>
+<p>​      x’’ = -g sin α  M R2 / (M R2 + I)<br>​      θ’’ = -g sin α  M R / (M R2 + I)<br>​      λ = M g sin α  I / (M R2 + I).</p>
+<p>The first two equations give the constant    acceleration and angular acceleration experienced as the ball    rolls down the slope. And the equation for λ is used in finding the forces that implement the constraint in the problem.    Specifically, these are the force and torque due to friction felt by the ball:</p>
+<p>​      Fx = λ ∂G/∂x = M g sin α  I / (M R2 + I)<br>​      τ = λ ∂G/∂θ = -R M g sin α  I / (M R2 + I).</p>
+<p>Looking at these results, we can see that the    force of friction is positive: it points in the +x direction (up    the hill) which means that it is slowing down the translational motion.  But the torque is negative: it acts in the direction    corresponding to rolling down the hill, which means that the speed of rotation increases as the ball rolls down.  That is exactly    what we would expect!</p>
+<p>As a final note, you may be worried that we would get different    answers for the forces of constraint if we just normalized the    constraint function G(x,θ,t) differently (for example, if we    set G = 2 x - 2 R θ).    Happily, that will not end up affecting the final answers at all.    A change in normalization for G will lead to a different answer    for λ (e.g. exactly half of what we found above), but the    products of λ and the derivatives of G will remain the    same.</p>
+<hr>
+<h2 id="Final-thoughts"><a href="#Final-thoughts" class="headerlink" title="Final thoughts"></a>Final thoughts</h2><p>This page certainly isn’t a <em>complete</em> explanation of    Lagrange multipliers, but I hope that it has at least clarified    the basic idea a little bit. I’m always glad to hear constructive    criticism and positive feedback, so feel free to <a href="mailto:jensens@alma.edu" target="_blank" rel="noopener">write to me with your comments</a>. (My thanks to the many people whose comments have    already helped me to improve this presentation.) I hope that I    have helped to make this extremely useful technique make more    sense. Best wishes using Lagrange multipliers in the future!</p>
 
       
 
@@ -259,15 +351,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Complex Analysis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分享</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">讲义</a>
         		</li>
       		
 		</ul>
@@ -323,7 +411,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/01/complex-analysis-lecture-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/01/undefined/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -337,18 +425,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/01/undefined/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          An-Introduction-to-Lagrange-Multipliers
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/25/hexo+github=blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac上搭建基于GitHub的Hexo博客</div>
+    <a href="/2018/04/01/complex-analysis-lecture-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一章-复数与复变函数-讲义</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -375,7 +454,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开课寄语"><span class="toc-number">1.</span> <span class="toc-text">开课寄语</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复数与复变函数"><span class="toc-number">2.</span> <span class="toc-text">复数与复变函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复数的表示形式"><span class="toc-number">2.1.</span> <span class="toc-text">复数的表示形式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代数形式"><span class="toc-number">2.1.1.</span> <span class="toc-text">代数形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三角形式"><span class="toc-number">2.1.2.</span> <span class="toc-text">三角形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指数形式-re-i-theta-r-gt-0"><span class="toc-number">2.1.3.</span> <span class="toc-text">指数形式  $re^{i \theta} ,r&gt;0$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复-函-数与几何"><span class="toc-number">2.2.</span> <span class="toc-text">复(函)数与几何</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#复数方程-gt-几何对象"><span class="toc-number">2.2.1.</span> <span class="toc-text">复数方程=&gt;几何对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#反演变换"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">反演变换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几何对象-gt-复数方程"><span class="toc-number">2.2.2.</span> <span class="toc-text">几何对象=&gt;复数方程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复数的点集拓扑基础"><span class="toc-number">2.3.</span> <span class="toc-text">复数的点集拓扑基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#极限理论"><span class="toc-number">2.3.1.</span> <span class="toc-text">极限理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连续性理论"><span class="toc-number">2.3.2.</span> <span class="toc-text">连续性理论</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#An-Introduction-to-Lagrange-Multipliers"><span class="toc-number">1.</span> <span class="toc-text">An Introduction to Lagrange Multipliers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#When-are-Lagrange-multipliers-useful"><span class="toc-number">1.1.</span> <span class="toc-text">When are Lagrange multipliers useful?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-classic-example-the-“milkmaid-problem”"><span class="toc-number">1.2.</span> <span class="toc-text">A classic example: the “milkmaid problem”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graphical-inspiration-for-the-method"><span class="toc-number">1.3.</span> <span class="toc-text">Graphical inspiration for the method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-mathematics-of-Lagrange-multipliers"><span class="toc-number">1.4.</span> <span class="toc-text">The mathematics of Lagrange multipliers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-formal-mathematical-inspiration"><span class="toc-number">1.5.</span> <span class="toc-text">A formal mathematical inspiration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Several-constraints-at-once"><span class="toc-number">1.6.</span> <span class="toc-text">Several constraints at once</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-meaning-of-the-multiplier"><span class="toc-number">1.7.</span> <span class="toc-text">The meaning of the multiplier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-of-Lagrange-multipliers-in-action"><span class="toc-number">1.8.</span> <span class="toc-text">Examples of Lagrange  multipliers in action</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-box-of-minimal-surface-area"><span class="toc-number">1.8.1.</span> <span class="toc-text">A box of minimal surface area</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-closest-approach-of-a-line-to-a-point"><span class="toc-number">1.8.2.</span> <span class="toc-text">The closest approach of a line to a point</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lagrange-multipliers-in-the-calculus-of-variations-often-in-physics"><span class="toc-number">1.9.</span> <span class="toc-text">Lagrange multipliers in the calculus of variations (often in physics)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#An-example-rolling-without-slipping"><span class="toc-number">1.10.</span> <span class="toc-text">An example: rolling without slipping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-thoughts"><span class="toc-number">1.11.</span> <span class="toc-text">Final thoughts</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -400,7 +479,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://yoursite.com/2018/04/01/complex-analysis-lecture-1/",
+  id: "http://yoursite.com/2018/04/01/undefined/",
   owner: 'haxushu',
   repo: 'haxushu.github.io',
   oauth: {
