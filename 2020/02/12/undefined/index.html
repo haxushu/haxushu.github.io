@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 数学 | Xu Shu&#39;s Blog</title>
+  <title>三维常系数线弹性方程的有限元程序实现 | Xu Shu&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Xu Shu&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/数学/index.html">
+  <meta name="description" content="三维常系数线弹性方程的有限元程序实现一、问题描述求解平衡态下弹性体的位移场。  弹性体受体力和面力，满足力的平衡方程和相应的边界条件； 均匀各向同性材料，满足特定本构方程（胡克定律）。   1. 微分形式有界闭区域$\Omega$满足如下力的平衡方程、边界条件和本构方程：$$\begin{cases}    -\partial_j \sigma_{ij}(\vec u) = f_i,~\vec x">
+<meta name="keywords" content="数学,有限元,PHG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三维常系数线弹性方程的有限元程序实现">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/undefined/index.html">
 <meta property="og:site_name" content="Xu Shu&#39;s Blog">
+<meta property="og:description" content="三维常系数线弹性方程的有限元程序实现一、问题描述求解平衡态下弹性体的位移场。  弹性体受体力和面力，满足力的平衡方程和相应的边界条件； 均匀各向同性材料，满足特定本构方程（胡克定律）。   1. 微分形式有界闭区域$\Omega$满足如下力的平衡方程、边界条件和本构方程：$$\begin{cases}    -\partial_j \sigma_{ij}(\vec u) = f_i,~\vec x">
+<meta property="og:image" content="http://yoursite.com/img/linear-elastic-constant/cube.png">
+<meta property="og:image" content="http://yoursite.com/img/linear-elastic-constant/outcome.png">
+<meta property="og:image" content="http://yoursite.com/img/linear-elastic-constant/LinearElasticity.png">
+<meta property="og:image" content="http://yoursite.com/img/linear-elastic-constant/frreefem.png">
+<meta property="og:updated_time" content="2020-02-12T13:30:41.958Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xu Shu&#39;s Blog">
+<meta name="twitter:title" content="三维常系数线弹性方程的有限元程序实现">
+<meta name="twitter:description" content="三维常系数线弹性方程的有限元程序实现一、问题描述求解平衡态下弹性体的位移场。  弹性体受体力和面力，满足力的平衡方程和相应的边界条件； 均匀各向同性材料，满足特定本构方程（胡克定律）。   1. 微分形式有界闭区域$\Omega$满足如下力的平衡方程、边界条件和本构方程：$$\begin{cases}    -\partial_j \sigma_{ij}(\vec u) = f_i,~\vec x">
+<meta name="twitter:image" content="http://yoursite.com/img/linear-elastic-constant/cube.png">
   
     <link rel="alternative" href="/atom.xml" title="Xu Shu&#39;s Blog" type="application/atom+xml">
   
@@ -159,36 +169,184 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-linear-elastic-constant" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/12/undefined/" class="archive-article-date">
-  	<time datetime="2020-02-12T13:08:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/12/undefined/">三维常系数线弹性方程的有限元程序实现</a>
+    <h1 class="article-title" itemprop="name">
+      三维常系数线弹性方程的有限元程序实现
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/02/12/undefined/" class="archive-article-date">
+  	<time datetime="2020-02-12T13:08:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="三维常系数线弹性方程的有限元程序实现"><a href="#三维常系数线弹性方程的有限元程序实现" class="headerlink" title="三维常系数线弹性方程的有限元程序实现"></a>三维常系数线弹性方程的有限元程序实现</h1><h2 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h2><p>求解平衡态下弹性体的位移场。</p>
+<ul>
+<li>弹性体受体力和面力，满足力的平衡方程和相应的边界条件；</li>
+<li>均匀各向同性材料，满足特定本构方程（胡克定律）。</li>
+</ul>
+<p><br></p>
+<h3 id="1-微分形式"><a href="#1-微分形式" class="headerlink" title="1. 微分形式"></a>1. 微分形式</h3><p>有界闭区域$\Omega$满足如下力的平衡方程、边界条件和本构方程：<br>$$<br>\begin{cases}<br>    -\partial_j \sigma_{ij}(\vec u) = f_i,~\vec x \in \Omega^{\circ} \\<br>    \vec u = 0,~\vec x \in \Gamma_0 \\<br>    \sigma_{ij}(\vec u) n_j = g_i,~~\vec x \in \Gamma_1,<br>\end{cases}<br>$$<br>其中已知量：</p>
+<ul>
+<li>$\vec f \in L_2(\Omega)$ 弹性体所受体力密度场，</li>
+<li>$\vec g \in L_2(\Gamma_1)$ 弹性体边界所受面力场，</li>
+</ul>
+<p>未知量：</p>
+<ul>
+<li>$\vec u$ 平衡时初始区域位移场，</li>
+</ul>
+<p>$$<br>\varepsilon_{ij}(\vec u) = \frac{1}{2}(\partial_i u_j + \partial_j u_i),<br>$$</p>
+<p>$$<br>\sigma_{ij} = \lambda\varepsilon_{kk}\delta_{ij} + 2\mu\varepsilon_{ij},<br>$$</p>
+<p>其中：</p>
+<ul>
+<li>$\varepsilon$ 无穷小应变张量，</li>
+<li>$\sigma$ 应力张量。</li>
+</ul>
+<a id="more"></a>
+<h3 id="2-变分形式"><a href="#2-变分形式" class="headerlink" title="2. 变分形式"></a>2. 变分形式</h3><p>考虑变分空间$V={\vec v\in (H_1(\Omega))^3<del>|</del>\vec v|_{\Gamma_0}=0}$。任取 $\vec v$$\in V$对微分形式两边做$L_2$内积，并利用分部积分公式得到如下变分形式：</p>
+<p>Find $\vec u \in V$ s.t.<br>$$<br>\int_\Omega \sigma(\vec u):\epsilon(\vec v) ~dV= \int_\Omega \vec f \cdot \vec v ~dV + \int_{\Gamma_1} \vec g \cdot \vec v ~dS,~~\forall\vec v\in V<br>$$</p>
+<h3 id="3-适定性"><a href="#3-适定性" class="headerlink" title="3. 适定性"></a>3. 适定性</h3><p>定义双线性型<br>$$<br>a(\vec u,\vec v)=\int_\Omega \sigma(\vec u):\epsilon(\vec v) ~dV,<br>$$<br>有界线性泛函<br>$$<br>l(\vec v) = \int_\Omega \vec f \cdot \vec v ~dV + \int_{\Gamma_1} \vec g \cdot \vec v ~dS.<br>$$<br>分别利用Cauchy-Schwarz不等式和Korn不等式可证明$a(\cdot,\cdot)$的连续性和强制性，再由Lax-Milgram引理可得$\vec u$的存在唯一性。</p>
+<h2 id="二、数值实验"><a href="#二、数值实验" class="headerlink" title="二、数值实验"></a>二、数值实验</h2><h3 id="1-微分形式-1"><a href="#1-微分形式-1" class="headerlink" title="1. 微分形式"></a>1. 微分形式</h3><p>$$<br>\begin{cases}<br>    -\partial_j \sigma_{ij}(\vec u) = f_i,~\vec x \in \Omega^{\circ} \\<br>    \vec u = 0,~\vec x \in \Gamma_6 \\<br>    \sigma_{ij}(\vec u) n_j = g_{ki},~~\vec x \in \Gamma_k,~k=1,2,..,5<br>\end{cases}<br>$$</p>
+<ul>
+<li>$\Omega = [0,2]^3$</li>
+<li>$\Gamma_k,~k=1,2,..,6$分别为立方体的上下前后右左面</li>
+<li>$\vec f = (0, -1, 0)^T$</li>
+<li>$\vec g_1 = (0,0,\frac{1}{3}y)^T,$ $\vec g_2 = (0,0,-\frac{1}{3}y)^T,$</li>
+<li>$\vec g_3 = (\frac{1}{3}y,0,0)^T,$ $\vec g_4 = (-\frac{1}{3}y,0,0)^T,$</li>
+<li>$\vec g_5 = (0,y,0)^T,$</li>
+<li>$\lambda=\mu=1.$</li>
+</ul>
+<h4 id="1-1-精确解"><a href="#1-1-精确解" class="headerlink" title="1.1 精确解"></a>1.1 精确解</h4><p>$$<br>\vec u = [0,~\frac{1}{6} y^2,~0]^T<br>$$</p>
+<h3 id="2-变分形式-1"><a href="#2-变分形式-1" class="headerlink" title="2. 变分形式"></a>2. 变分形式</h3><p>Find $\vec u \in V={\vec v\in (H_1(\Omega))^3<del>|</del>\vec v|_{\Gamma_6}=0}$  s.t.<br>$$<br>\int_\Omega \sigma(\vec u):\epsilon(\vec v) ~dV= \int_\Omega \vec f \cdot \vec v ~dV + \sum_{i=1}^5\int_{\Gamma_i} \vec g \cdot \vec v ~dS,~~\forall\vec v\in V<br>$$</p>
+<h3 id="3-有限元形式"><a href="#3-有限元形式" class="headerlink" title="3. 有限元形式"></a>3. 有限元形式</h3><p>Find $\vec u \in V_h = {\vec v\in (H_1(\Omega))^3<del>|</del>\vec v|_{T} \in P_1(T), \forall T \in \mathbf{T_h}, ~\vec v|_{\Gamma_6}=0}$  s.t.<br>$$<br>\int_\Omega \sigma(\vec u):\epsilon(\vec v) ~dV= \int_\Omega \vec f \cdot \vec v ~dV + \sum_{i=1}^{5}\int_{\Gamma_i} \vec g \cdot \vec v  dS,~\forall\vec v\in V_h<br>$$</p>
+<h3 id="4-网格生成"><a href="#4-网格生成" class="headerlink" title="4. 网格生成"></a>4. 网格生成</h3><p>按照.smesh面网格文件格式形成初始立方体面网格，然后利用软件Tetgen自动生成四面体网格文件.mesh。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Part 1 - node list</span><br><span class="line"># node count, 3 dim, no attribute, no boundary marker </span><br><span class="line">8 3 0 1</span><br><span class="line"># Node index, node coordinates</span><br><span class="line">1 0.0 0.0 0.0</span><br><span class="line">2 2.0 0.0 0.0</span><br><span class="line">3 2.0 2.0 0.0</span><br><span class="line">4 0.0 2.0 0.0</span><br><span class="line">5 0.0 0.0 2.0</span><br><span class="line">6 2.0 0.0 2.0</span><br><span class="line">7 2.0 2.0 2.0</span><br><span class="line">8 0.0 2.0 2.0</span><br><span class="line"># Part 2 - facet list</span><br><span class="line"># facet count, no boundary marker</span><br><span class="line">6 1</span><br><span class="line"># facets</span><br><span class="line">4 1 2 3 4 2 #bottom</span><br><span class="line">4 5 6 7 8 1 #top</span><br><span class="line">4 1 2 6 5 6 #left</span><br><span class="line">4 2 3 7 6 3 #front</span><br><span class="line">4 3 4 8 7 5 #right</span><br><span class="line">4 4 1 5 8 4 #back</span><br></pre></td></tr></table></figure>
+<center><img src="/img/linear-elastic-constant/cube.png" alt="cube.mesh" style="zoom:80%;"></center>
+
+
+
+
+
+<h3 id="5-线性系统"><a href="#5-线性系统" class="headerlink" title="5. 线性系统"></a>5. 线性系统</h3><h4 id="5-1-刚度矩阵"><a href="#5-1-刚度矩阵" class="headerlink" title="5.1 刚度矩阵"></a>5.1 刚度矩阵</h4><p>将$\vec v = \vec v_k \phi_k$代入变分形式可得方程组<br>$$<br>\int_\Omega \sigma_{ij}(\vec u) \partial_j \phi_k ~dV= \int_\Omega f_i  \phi_k ~dV + \int_{\Gamma} g_i \phi_k  dS,~~i=1,2,3,k=0,1,…,N-1.<br>$$<br>继续将$\vec u = \vec u_k \phi_k$代入可得关于未知量$(u_{1,1},u_{1,2},…,u_{N,3})$的3N阶线性方程组。矩阵元素<br>$$<br>A_{3m+q,~3k+i}=\int_{\Omega} \lambda \partial_q \phi_m \partial_i \phi_k+\mu\partial_i\phi_m\partial_q\phi_k + \delta_{qi}\mu\partial_j\phi_m\partial_j\phi_k~dV.<br>$$</p>
+<p>实际程序实现采用枚举网格每一单元先构造单元刚度矩阵，然后累加至总体刚度矩阵。后续载荷向量和边界条件项的计算实现也采用同样方式。</p>
+<h4 id="5-2-载荷向量"><a href="#5-2-载荷向量" class="headerlink" title="5.2 载荷向量"></a>5.2 载荷向量</h4><p>$$<br>\vec b=(…,\int_{\Omega}f_i \phi_k~dV,…)^T.<br>$$</p>
+<h4 id="5-3-边界条件项"><a href="#5-3-边界条件项" class="headerlink" title="5.3 边界条件项"></a>5.3 边界条件项</h4><ul>
+<li>对于Dirichlet零边值边界条件：将刚度矩阵对应矩阵元素设为1，载荷向量相应位置设为0；</li>
+<li>Neumann边界条件：载荷向量对应位置加上边界项$\int_\Gamma g_i \phi_k ~dS.$</li>
+</ul>
+<h3 id="6-数值结果"><a href="#6-数值结果" class="headerlink" title="6. 数值结果"></a>6. 数值结果</h3><h4 id="6-1误差阶"><a href="#6-1误差阶" class="headerlink" title="6.1误差阶"></a>6.1误差阶</h4><p>终端中程序运行输出结果，并将数据整理形成表格计算各种范数的误差阶情况如下：</p>
+<center><img src="/img/linear-elastic-constant/outcome.png" alt="Shell" style="zoom:50%;"></center>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">外接球直径 h~max~</th>
+<th style="text-align:center">H~1~范数</th>
+<th style="text-align:center">阶</th>
+<th style="text-align:center">L~2~范数</th>
+<th style="text-align:center">阶</th>
+<th style="text-align:center">L~1~范数</th>
+<th style="text-align:center">阶</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2.95804</td>
+<td style="text-align:center">0.171261</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">0.05619</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">0.185037</td>
+<td style="text-align:center">/</td>
+</tr>
+<tr>
+<td style="text-align:center">1.47902</td>
+<td style="text-align:center">0.077058</td>
+<td style="text-align:center">1.15218000735711</td>
+<td style="text-align:center">0.017648</td>
+<td style="text-align:center">1.67080870426018</td>
+<td style="text-align:center">0.055995</td>
+<td style="text-align:center">1.72444386642493</td>
+</tr>
+<tr>
+<td style="text-align:center">0.73951</td>
+<td style="text-align:center">0.035939</td>
+<td style="text-align:center">1.10039447556558</td>
+<td style="text-align:center">0.004975</td>
+<td style="text-align:center">1.82673626527301</td>
+<td style="text-align:center">0.015389</td>
+<td style="text-align:center">1.86339852310954</td>
+</tr>
+<tr>
+<td style="text-align:center">0.369755</td>
+<td style="text-align:center">0.017469</td>
+<td style="text-align:center">1.04075324191767</td>
+<td style="text-align:center">0.001302</td>
+<td style="text-align:center">1.93396707715274</td>
+<td style="text-align:center">0.00397</td>
+<td style="text-align:center">1.95468857377173</td>
+</tr>
+<tr>
+<td style="text-align:center">0.184877</td>
+<td style="text-align:center">0.008706</td>
+<td style="text-align:center">1.00471509936808</td>
+<td style="text-align:center">0.00033</td>
+<td style="text-align:center">1.98019151891982</td>
+<td style="text-align:center">0.000999</td>
+<td style="text-align:center">1.9905824242379</td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-2-可视化"><a href="#6-2-可视化" class="headerlink" title="6.2 可视化"></a>6.2 可视化</h4><p>将位移场数据存储成.vtk文件，之后利用软件paraview作出三维矢量场图像。</p>
+<center><img src="/img/linear-elastic-constant/LinearElasticity.png" alt="LinearElasticity" style="zoom:67%;"></center>
+
+<p>利用有限元软件Freefem编写程序求解相同问题。之后利用位移场移动网格，可绘制出平衡时的网格图像。</p>
+<center><img src="/img/linear-elastic-constant/frreefem.png" alt="Freefem"></center>
+
+<p><a href="https://doc.freefem.org/introduction/index.html" target="_blank" rel="noopener">Freefem</a>有限元软件只需要程序员编写程序表示出问题的变分形式，之后由软件自动解析生成线性方程组求解变分问题，对于一般的问题求解起来更加方便。PHG和Freefem两者可优势互补，可利用Freefem的运算结果对所编写的PHG程序进行对照校验。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -208,117 +366,135 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/12/undefined/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/01/undefined/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">An Introduction to Lagrange Multipliers</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/01/undefined/" class="archive-article-date">
-  	<time datetime="2018-04-01T04:47:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#三维常系数线弹性方程的有限元程序实现"><span class="toc-number">1.</span> <span class="toc-text">三维常系数线弹性方程的有限元程序实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、问题描述"><span class="toc-number">1.1.</span> <span class="toc-text">一、问题描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-微分形式"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 微分形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-变分形式"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 变分形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-适定性"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 适定性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、数值实验"><span class="toc-number">1.2.</span> <span class="toc-text">二、数值实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-微分形式-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 微分形式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-精确解"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1.1 精确解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-变分形式-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 变分形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-有限元形式"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 有限元形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-网格生成"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 网格生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-线性系统"><span class="toc-number">1.2.5.</span> <span class="toc-text">5. 线性系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-刚度矩阵"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">5.1 刚度矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-载荷向量"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">5.2 载荷向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-边界条件项"><span class="toc-number">1.2.5.3.</span> <span class="toc-text">5.3 边界条件项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-数值结果"><span class="toc-number">1.2.6.</span> <span class="toc-text">6. 数值结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1误差阶"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">6.1误差阶</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-可视化"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">6.2 可视化</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/01/undefined/">An Introduction to Lagrange Multipliers</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/01/complex-analysis-lecture-1/" class="archive-article-date">
-  	<time datetime="2018-04-01T04:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/01/complex-analysis-lecture-1/">第一章 复数与复变函数 讲义</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Complex Analysis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">讲义</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2020/02/12/undefined/",
+  owner: 'haxushu',
+  repo: 'haxushu.github.io',
+  oauth: {
+    client_id: '2b4e7e2068c154235a0c',
+    client_secret: 'ab847e09235c3b181e3c9377a1dfc0f1acb167f4',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -341,9 +517,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
